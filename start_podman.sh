@@ -18,7 +18,7 @@ IMAGE_NAME="${IMAGE_NAME:-dit360}"
 # by root). Point it at the bind-mounted /DiT360 instead, which the
 # non-root user actually owns - this also means downloaded weights persist
 # across container restarts on this device.
-podman run --rm -it \
+podman run -d \
     --userns=keep-id \
     --device nvidia.com/gpu=all \
     -e HF_HOME=/DiT360/.cache/huggingface \
